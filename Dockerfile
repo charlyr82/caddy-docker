@@ -5,7 +5,7 @@ FROM abiosoft/caddy:builder as builder
 
 ARG version="1.0.3"
 ARG plugins="duckdns,git,cors,realip,expires,cache,cloudflare"
-ARG enable_telemetry="true"
+ARG enable_telemetry="false"
 
 # process wrapper
 RUN go get -v github.com/abiosoft/parent
@@ -22,7 +22,7 @@ ARG version="1.0.3"
 LABEL caddy_version="$version"
 
 # Let's Encrypt Agreement
-ENV ACME_AGREE="false"
+ENV ACME_AGREE="true"
 
 # Telemetry Stats
 ENV ENABLE_TELEMETRY="$enable_telemetry"
